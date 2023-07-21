@@ -1,0 +1,31 @@
+#login-section {
+  a {
+    text-decoration: none;
+  }
+  .btn-floating {
+    border-radius: 50%;
+    box-shadow: 0 8px 9px -4px rgba(59,113,202,0.3), 0 4px 18px 0 rgba(59,113,202,0.2);
+    width: 37px;
+    height: 37px;
+  }
+  .btn-login {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    box-shadow: 0 4px 9px -4px #3b71ca;
+  }
+  .divider:after,
+  .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+  .h-custom {
+    height: calc(100% - 73px);
+  }
+  @media (max-width: 450px) {
+    .h-custom {
+      height: 100%;
+    }
+  }
+}

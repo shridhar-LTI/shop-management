@@ -71,4 +71,7 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'bootstrap'
+gem "bootstrap"
+gem 'jquery-rails'
+gem 'font-awesome-rails'
+gem "devise", "~> 4.9"
