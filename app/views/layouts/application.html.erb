@@ -11,8 +11,11 @@
   </head>
 
   <body>
-    <% if notice.present? %><p class="notice"><%= notice %></p><% end %>
-    <% if alert.present? %><p class="alert"><%= alert %></p><% end %>
-    <%= yield %>
+    <%= render template: 'shared/navbar' if user_signed_in? %>
+    <div class=<%= controller_name != 'sessions' ? 'container-fluid' : '' %>>
+      <% if notice.present? %><p class="notice"><%= notice %></p><% end %>
+      <% if alert.present? %><p class="alert"><%= alert %></p><% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
