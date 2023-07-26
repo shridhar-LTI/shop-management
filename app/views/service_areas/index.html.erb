@@ -1,0 +1,34 @@
+<div class="service-areas container-fluid">
+  <div class="page-heading">
+    <h2>Service Areas</h2>
+  </div>
+
+  <div class="page-action">
+    <div class="action-bar">
+      <%= link_to "+ New", new_service_area_path, type: "button", class: "btn btn-dark" %>
+    </div>
+  </div>
+
+  <div class="page-body container-fluid">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Service Area Name</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @service_areas.each_with_index do |service_area, index| %>
+          <tr>
+            <th scope="row"><%= index+1 %></th>
+            <td><%= service_area.name %></td>
+            <td><%= link_to edit_service_area_path(service_area) do %><%= fa_icon "pencil" %><% end %></td>
+            <td><%= link_to service_area_path(service_area), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %><%= fa_icon "trash" %><% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

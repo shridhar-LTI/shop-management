@@ -1,0 +1,26 @@
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="modalTitle">Modal title</h5>
+      <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <%= form_for ServiceArea.new do |form| %>
+      <div class="modal-body">
+          <div class="form-group row">
+          <%= form.label :name, class: "col-sm-2 col-form-label" %>
+          <div class="col-sm-10">
+              <%= form.text_field :name, class: "form-control", placeholder: "Enter a service area name", required: true %>
+          </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+          <%= form.submit "Create Service Area", class: "btn btn-dark" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
