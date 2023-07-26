@@ -1,0 +1,63 @@
+<%= form_for customer, html: { class: "page-form" } do |form| %>
+  <div class="form-group row">
+    <%= form.label :name, class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= form.text_field :name, class: "form-control", placeholder: "Enter customer name", required: true %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :primary_contact, class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= form.number_field :primary_contact, class: "form-control", placeholder: "Enter primary contact number", required: true %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :secondary_contact, class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= form.number_field :secondary_contact, class: "form-control", placeholder: "Enter secondary contact number" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :email, class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= form.email_field :email, class: "form-control", placeholder: "Enter email address" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :address, class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= form.text_field :address, class: "form-control", placeholder: "Enter address" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :service_area_id, "Service Area", class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= form.select :service_area_id, options_for_select(ServiceArea.all.map {|k| [k.name.humanize.capitalize, k.id]}), {}, { class: "form-select" } %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :status, class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= form.select :status, options_for_select(Customer.statuses.map {|k, v| [k.humanize.capitalize, v]}), {}, { class: "form-select" } %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :credit_limit, class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= form.number_field :credit_limit, class: "form-control", placeholder: "Enter credit limit for the customer" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col text-center">
+      <%= form.submit class: "btn btn-dark" %>
+    </div>
+  </div>
+<% end %>

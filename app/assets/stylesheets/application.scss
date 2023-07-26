@@ -15,8 +15,41 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "devise/sessions";
-@import "service_areas";
 
 a {
   text-decoration: none;
+}
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  .page-heading {
+    padding-top: 16px;
+  }
+}
+.action-bar {
+  padding: 24px 16px;
+  border: 1px solid;
+  box-shadow: 2px 2px 4px;
+  border-radius: 4px;
+}
+.page-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 32px 16px;
+  box-shadow: 2px 2px 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .page-layout {
+    gap: 8px;
+  }
+  .page-form {
+    width: 100%;
+    padding: 16px;
+  }
 }

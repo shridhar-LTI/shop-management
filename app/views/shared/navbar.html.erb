@@ -8,10 +8,10 @@
     <div class=" collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto ">
         <li class="nav-item">
-          <a class="nav-link mx-2" href="#">Accounts</a>
+          <%= link_to "Customers", customers_path, class: "nav-link mx-2 #{controller_name == "customers" ? 'active' : ''}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Service Areas", service_areas_path, class: "nav-link mx-2 #{controller_name == "service_areas" ? 'active' : ''}", "aria-current": "page" %>
+          <%= link_to "Service Areas", service_areas_path, class: "nav-link mx-2 #{controller_name == "service_areas" ? 'active' : ''}" %>
         </li>
         <li class="nav-item">
           <a class="nav-link mx-2" href="#">Reports</a>
