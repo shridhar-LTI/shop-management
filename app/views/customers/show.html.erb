@@ -1,0 +1,72 @@
+<div class="page-layout container-fluid">
+  <div class="page-heading">
+    <div class="d-flex justify-content-start align-items-center gap-3">
+      <h2><%= @customer.name.humanize %></h2>
+      <div id="<%= dom_id @customer, :status %>" class="d-flex">
+        <%= render 'customers/status_badge', customer: @customer %>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-action">
+    <div class="action-bar">
+      <%= link_to edit_customer_path(@customer), class: "btn btn-dark" do %>
+        <%= icon "fa-solid", "pencil" %> Edit
+      <% end %>
+
+      <div id="<%= dom_id @customer, :update_status %>" class="d-flex">
+        <%= render 'customers/update_status', customer: @customer %>
+      </div>
+
+      <%= link_to customer_path(@customer), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <%= icon "fa-solid", "trash" %> Delete
+      <% end %>
+      <%= link_to "+ New Transaction", "#", class: "btn btn-dark" %>
+    </div>
+  </div>
+
+  <div class="page-body container-fluid">
+    <div class="row mb-4">
+      <div class="col-4">
+        <div class="col-4">
+          <%= label_tag "Village:", nil, class: "fw-bold" %>
+          <span><%= @customer.service_area.name %></span>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <%= label_tag "Primary Contact Number:", nil, class: "fw-bold" %>
+        <span><%= @customer.primary_contact %></span>
+      </div>
+
+      <div class="col-4">
+        <%= label_tag "Secondary Contact Number:", nil, class: "fw-bold" %>
+        <span><%= @customer.secondary_contact.presence || not_applicable %></span>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-4">
+        <%= label_tag "Credit Limit:", nil, class: "fw-bold" %>
+        <span><%= @customer.credit_limit.presence || not_applicable %></span>
+      </div>
+
+      <div class="col-4">
+        <%= label_tag "Email Address:", nil, class: "fw-bold" %>
+        <span><%= @customer.email.presence || not_applicable %></span>
+      </div>
+
+      <div class="col-4">
+        <%= label_tag "Customer Address:", nil, class: "fw-bold" %>
+        <span><%= @customer.address.presence || not_applicable %></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4">
+        <%= label_tag "Customer Registered At:", nil, class: "fw-bold" %>
+        <span><%= @customer.created_at %></span>
+      </div>     
+    </div>
+  </div>
+</div>

@@ -24,8 +24,8 @@
           <tr>
             <th scope="row"><%= index+1 %></th>
             <td><%= service_area.name %></td>
-            <td><%= link_to edit_service_area_path(service_area) do %><%= fa_icon "pencil" %><% end %></td>
-            <td><%= link_to service_area_path(service_area), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %><%= fa_icon "trash" %><% end %></td>
+            <td><%= link_to edit_service_area_path(service_area) do %><%= icon "fa-solid", "pencil" %><% end %></td>
+            <td><%= link_to service_area_path(service_area), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %><%= icon "fa-solid", "trash" %><% end %></td>
           </tr>
         <% end %>
       </tbody>

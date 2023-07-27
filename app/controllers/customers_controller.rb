@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @customers = Customer.includes(:service_area).order(:name)
+    @customers = Customer.includes(:service_area).order("service_areas.name, customers.name")
   end
 
   def show
@@ -27,11 +27,21 @@ class CustomersController < ApplicationController
   end
 
   def update
-    if @customer.update(customer_params)
-      redirect_to customers_path, notice: "Successfully updated!"
-    else
-      flash.now[:alert] = @customer.errors.map(&:message).join(", ")
-      render action: :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @customer.update(customer_params)
+        format.html { redirect_to customers_path, notice: "Successfully updated!" }
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update(ActionView::RecordIdentifier.dom_id(@customer, :status), partial: "customers/status_badge", locals: {customer: @customer}),
+            turbo_stream.update(ActionView::RecordIdentifier.dom_id(@customer, :update_status), partial: "customers/update_status", locals: {customer: @customer})
+          ]
+        end
+      else
+        format.html do
+          flash.now[:alert] = errors
+          render action: :edit, status: :unprocessable_entity
+        end
+      end
     end
   end
 

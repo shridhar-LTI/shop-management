@@ -21,10 +21,10 @@
             Settings
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#"><%= fa_icon "user" %> Profile</a></li>
+            <li><a class="dropdown-item" href="#"><%= icon "fa-solid", "user" %> Profile</a></li>
             <li>
               <%= link_to destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } do %>
-                <%= fa_icon "sign-out" %> Sign out
+                <%= icon "fa-solid", "sign-out" %> Sign out
               <% end %>
             </li>
           </ul>

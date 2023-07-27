@@ -16,18 +16,18 @@
 @import "font-awesome";
 @import "devise/sessions";
 
-a {
-  text-decoration: none;
-}
+a { text-decoration: none; }
 .page-layout {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  .page-heading {
-    padding-top: 16px;
-  }
+  .page-heading { padding-top: 16px; }
+  .page-body { overflow: scroll; }
 }
 .action-bar {
+  display: flex;
+  flex-flow: wrap;
+  gap: 8px;
   padding: 24px 16px;
   border: 1px solid;
   box-shadow: 2px 2px 4px;
@@ -45,9 +45,7 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  .page-layout {
-    gap: 8px;
-  }
+  .page-layout { gap: 8px; }
   .page-form {
     width: 100%;
     padding: 16px;

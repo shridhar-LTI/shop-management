@@ -1,0 +1,4 @@
+<span class="badge bg-<%= customer.active? ? 'success' : 'danger' %>">
+  <%= customer.status %>
+  <%= icon "fa-solid", "#{customer.active? ? 'check' : 'ban'}" %>
+</span>

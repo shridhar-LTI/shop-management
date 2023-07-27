@@ -1,0 +1,7 @@
+<%= form_with model: customer do |form| %>
+  <%= form.hidden_field :status, value: customer.active? ? 'inactive' : 'active' %>
+  <%= button_tag class: "btn btn-#{customer.active? ? 'danger' : 'success'}" do %>
+    <%= icon "fa-solid", "#{customer.active? ? 'lock' : 'lock-open'}" %>
+    <%= "#{customer.active? ? 'Lock' : 'Unlock'}" %>
+  <% end %>
+<% end %>
