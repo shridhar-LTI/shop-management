@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header">
+    <span class="fw-bold">Debit Transactions</span>
+  </div>
+
+  <div class="card-body d-flex flex-column gap-3">
+    <div class="action-bar">
+      <%= button_tag '+ New', type: 'button', class: 'btn btn-sm btn-secondary', 'data-bs-toggle': 'modal', 'data-bs-target': '#debit-transaction-modal' %>
+    </div>
+
+    <div id="<%= dom_id @customer, :debit_transactions %>" class="overflow-auto">
+      <% if customer.debit_transactions.present? %>
+        <%= render 'customers/transactions/transaction_table', customer: customer, transactions: customer.debit_transactions %>
+      <% end %>
+    </div>
+  </div>
+</div>

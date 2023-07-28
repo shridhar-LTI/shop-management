@@ -32,8 +32,8 @@ class CustomersController < ApplicationController
         format.html { redirect_to customers_path, notice: "Successfully updated!" }
         format.turbo_stream do
           render turbo_stream: [
-            turbo_stream.update(ActionView::RecordIdentifier.dom_id(@customer, :status), partial: "customers/status_badge", locals: {customer: @customer}),
-            turbo_stream.update(ActionView::RecordIdentifier.dom_id(@customer, :update_status), partial: "customers/update_status", locals: {customer: @customer})
+            turbo_stream.update(ActionView::RecordIdentifier.dom_id(@customer, :status), partial: "customers/status_badge", locals: { customer: @customer }),
+            turbo_stream.update(ActionView::RecordIdentifier.dom_id(@customer, :update_status), partial: "customers/update_status", locals: { customer: @customer })
           ]
         end
       else

@@ -1,0 +1,37 @@
+<div class='modal fade' id='credit-transaction-modal' tabindex='-1' role='dialog' aria-labelledby='modalTitle' aria-hidden='true'>
+  <div class='modal-dialog modal-dialog-centered modal-lg' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='modalTitle'>
+          <span class='fw-bold'><%=  customer.name %></span> -
+          <span class='text-success'> Credit Transaction</span>
+        </h5>
+      </div>
+
+      <%= form_with model: customer.transactions.new, url: customer_transactions_path(customer) do |form| %>
+        <div class='modal-body d-flex flex-column gap-3'>
+          <%= form.hidden_field :transaction_type, value: Transaction.transaction_types[:credit] %>
+
+          <div class="form-group row">
+            <%= form.label :amount, "Transaction Amount", class: "col-sm-3 col-form-label" %>
+            <div class="col-sm-9">
+              <%= form.number_field :amount, class: "form-control", placeholder: "Enter amount", required: true %>
+            </div>
+          </div>
+        
+          <div class="form-group row">
+            <%= form.label :description, class: "col-sm-3 col-form-label" %>
+            <div class="col-sm-9">
+              <%= form.text_area :description, class: "form-control", placeholder: "Enter transaction description" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+          <%= form.submit "Submit", class: "btn btn-dark" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

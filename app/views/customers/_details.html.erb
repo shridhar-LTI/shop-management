@@ -1,0 +1,36 @@
+<div class='row'>
+  <div class='col-xs-12 col-sm-6 col-lg-4 pb-2'>
+    <%= label_tag 'Village:', nil, class: 'fw-bold' %>
+    <span><%= @customer.service_area.name %></span>
+  </div>
+
+  <div class='col-xs-12 col-sm-6 col-lg-4 pb-2'>
+    <%= label_tag 'Contact Number 1:', nil, class: 'fw-bold' %>
+    <span><%= @customer.primary_contact %></span>
+  </div>
+
+  <div class='col-xs-12 col-sm-6 col-lg-4 pb-2'>
+    <%= label_tag 'Contact Number 2:', nil, class: 'fw-bold' %>
+    <span><%= @customer.secondary_contact.presence || not_applicable %></span>
+  </div>
+
+  <div class='col-xs-12 col-sm-6 col-lg-4 pb-2'>
+    <%= label_tag 'Credit Limit:', nil, class: 'fw-bold' %>
+    <span><%= @customer.credit_limit.presence || not_applicable %></span>
+  </div>
+
+  <div class='col-xs-12 col-sm-6 col-lg-4 pb-2'>
+    <%= label_tag 'Email Address:', nil, class: 'fw-bold' %>
+    <span><%= @customer.email.presence || not_applicable %></span>
+  </div>
+
+  <div class='col-xs-12 col-sm-6 col-lg-4 pb-2'>
+    <%= label_tag 'Customer Address:', nil, class: 'fw-bold' %>
+    <span><%= @customer.address.presence || not_applicable %></span>
+  </div>
+
+  <div class='col-xs-12 col-sm-6 col-lg-4 pb-2'>
+    <%= label_tag 'Customer Registered At:', nil, class: 'fw-bold' %>
+    <span><%= @customer.created_at %></span>
+  </div> 
+</div>

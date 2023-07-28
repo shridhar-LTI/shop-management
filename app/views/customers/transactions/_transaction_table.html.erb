@@ -1,0 +1,22 @@
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th scope='col'>Date</th>
+      <th scope='col'>Amount</th>
+      <th scope='col' class='d-none d-lg-table-cell'>Description</th>
+      <th scope='col'></th>
+      <th scope='col'></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.date.presence || transaction.created_at %></td>
+        <td><%= transaction.amount %></td>
+        <td class='d-none d-lg-table-cell'><%= transaction.description %></td>
+        <td><%= icon 'fa-solid', 'pencil' %></td>
+        <td><%= link_to customer_transaction_path(customer, transaction), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %><%= icon 'fa-solid', 'trash' %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

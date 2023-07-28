@@ -15,6 +15,7 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "devise/sessions";
+@import "transactions";
 
 a { text-decoration: none; }
 .page-layout {
@@ -29,9 +30,14 @@ a { text-decoration: none; }
   flex-flow: wrap;
   gap: 8px;
   padding: 24px 16px;
-  border: 1px solid;
-  box-shadow: 2px 2px 4px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 4px #ccc;
   border-radius: 4px;
+}
+.card .action-bar {
+  box-shadow: 4px 4px 8px #ccc;
+  border-color: #ccc;
+  padding: 12px;
 }
 .page-form {
   display: flex;
